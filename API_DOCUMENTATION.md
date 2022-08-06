@@ -190,7 +190,7 @@
 
 - Deletes a specified question using the id of the question
 - Request Arguments: `id` - integer
-- Returns: `deleted` the `id` of the deleted question and `succes` flag set to `True`.
+- Returns: An object with keys; `deleted` the `id` of the deleted question and `succes` flag set to `True`.
 
 ### Example:
 
@@ -211,7 +211,7 @@
 
 - Sends a post request in order to add a new question
 - Request Body: `{"question": "Who is the prince of Africa","answer": "MrScan","difficulty": 1,"category": 1}` The `question`, `answer`, `difficulty` and `category` encoded as json string.
-- Returns: `created` the `id` of the created question and `succes` flag set to `True`.
+- Returns: An object with keys; `created` the `id` of the created question and `succes` flag set to `True`.
 
 ### Example:
 
