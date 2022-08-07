@@ -289,3 +289,9 @@
   }
 }
 ```
+
+> Please checkout the instructions for setting up test DB before running the test.
+
+The API documentation is API_DOCUMENTATION.md
+
+I encountered issues using the versions of dependencies in requirements.txt, consider running "pip install --upgrade -r requirements.txt" if you encounter issues.
