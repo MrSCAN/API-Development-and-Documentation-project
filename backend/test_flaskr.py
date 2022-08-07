@@ -6,6 +6,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 from flaskr import create_app
 from models import setup_db, Question, Category
+from settings import TEST_DB_NAME, DB_USER, DB_PASSWORD
 
 """To deploy the tests, run from backend folder;
 
@@ -24,10 +25,9 @@ class TriviaTestCase(unittest.TestCase):
         """Define test variables and initialize app."""
         self.app = create_app()
         self.client = self.app.test_client
-        self.database_name = "trivia_test"
         # self.database_path = "postgres://{}/{}".format('localhost:5432', self.database_name)
         self.database_path = "postgresql://{}:{}@{}/{}".format(
-        "postgres", "azerty", "localhost:5432", self.database_name
+        DB_USER, DB_PASSWORD, "localhost:5432", TEST_DB_NAME
         )
         setup_db(self.app, self.database_path)
 

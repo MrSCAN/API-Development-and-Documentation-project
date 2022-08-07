@@ -237,14 +237,13 @@ def create_app(test_config=None):
                 questions = Question.query.order_by(Question.id).all()
             else:
                 questions = Question.query.filter(Question.category==category_id).order_by(Question.id).all()
-
             #Check if questions were returned
             if len(questions) == 0:
                 abort(404)
-            for question in questions:
-                if question.id in previous_questions:
-                    questions.remove(question)
-            question = random.choice(questions)
+            unseen_questions = [question for question in questions if question.id not in previous_questions ]
+            if len(unseen_questions) == 0:
+                return jsonify({"question":None})
+            question = random.choice(unseen_questions)
             
             return jsonify({"question":question.format()})
         except:
